@@ -4,12 +4,15 @@ version = "0.1.0"
 description = ""
 authors = ["Jean Rodrigues <jean.rodrigues@olist.com>"]
 
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "mg_ticket.settings"
+
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 django-ninja = "^0.13.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^6.0"
 ipython = "^7.25.0"
 ipdb = "^0.13.9"
 black = "^21.7b0"
