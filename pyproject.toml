@@ -3,6 +3,12 @@ name = "mg-ticket"
 version = "0.1.0"
 description = ""
 authors = ["Jean Rodrigues <jean.rodrigues@olist.com>"]
+packages = [
+    { include = "*", from = "src" }
+]
+exclude = [
+    "**/tests"
+]
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "mg_ticket.settings"
