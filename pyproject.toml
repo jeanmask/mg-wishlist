@@ -1,3 +1,21 @@
+[tool.black]
+line-length = 110
+target-version = ["py38"]
+
+[tool.isort]
+line_length = 110
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+known_first_party = "client_core,olist_auth,olist_aws,olist_commons,olist_django,olist_product_validation"
+known_local_folder = "apps,utils,tests,publication_edit_service"
+sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
+default_section = "THIRDPARTY"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "mg_ticket.settings"
+
 [tool.poetry]
 name = "mg-ticket"
 version = "0.1.0"
@@ -10,9 +28,6 @@ exclude = [
     "**/tests"
 ]
 
-[tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "mg_ticket.settings"
-
 [tool.poetry.dependencies]
 python = "^3.9"
 django-ninja = "^0.13.2"
@@ -24,6 +39,8 @@ ipdb = "^0.13.9"
 black = "^21.7b0"
 isort = "^5.9.2"
 pytest-django = "^4.4.0"
+pre-commit = "^2.13.0"
+safety = "^1.10.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

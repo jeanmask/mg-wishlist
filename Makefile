@@ -17,12 +17,9 @@ clean:
 	@find . -type f -name "*.py[co]" -exec rm -rf {} +
 
 format: clean
-	@poetry run black poetry/ tests/
+	@poetry run pre-commit run -a -v black
+	@poetry run pre-commit run -a -v isort
 
-# install all dependencies
-setup: setup-python
-
-# test your application (tests in the tests/ directory)
 test:
 	@poetry run pytest -xs
 
