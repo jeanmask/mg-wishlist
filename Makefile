@@ -21,7 +21,7 @@ format: clean
 	@poetry run pre-commit run -a -v isort
 
 test:
-	@poetry run pytest -xs
+	@poetry run pytest -xs -vv
 
 build:
 	@poetry build
