@@ -17,3 +17,8 @@ def customers():
 @pytest.fixture
 def customer(customers):
     return choice(customers)
+
+
+@pytest.fixture
+def customers_objs(customers):
+    return [Customer.objects.create(**customer) for customer in customers]
