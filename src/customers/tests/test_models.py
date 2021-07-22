@@ -1,6 +1,6 @@
 import pytest
-from django.core.validators import validate_email
 from django.db.utils import IntegrityError
+
 from customers.models import Customer
 
 

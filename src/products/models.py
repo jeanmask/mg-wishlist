@@ -1,11 +1,5 @@
 from django.db import models
-from django.db.models.fields import (
-    CharField,
-    DateTimeField,
-    DecimalField,
-    URLField,
-    UUIDField,
-)
+from django.db.models.fields import CharField, DateTimeField, DecimalField, URLField, UUIDField
 
 
 class Product(models.Model):
