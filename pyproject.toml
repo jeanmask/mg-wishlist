@@ -14,13 +14,13 @@ sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
 default_section = "THIRDPARTY"
 
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "mg_ticket.settings"
+DJANGO_SETTINGS_MODULE = "mg_wishlist.settings"
 
 [tool.poetry]
-name = "mg-ticket"
+name = "mg-wishlist"
 version = "0.1.0"
 description = ""
-authors = ["Jean Rodrigues <jean.rodrigues@olist.com>"]
+authors = ["Jean Rodrigues <misc@jean.bz>"]
 packages = [
     { include = "*", from = "src" }
 ]
