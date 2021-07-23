@@ -10,6 +10,7 @@ class Customer(models.Model):
     id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False, help_text="Customer UUID")
     name = CharField(blank=False, max_length=255, help_text="Customer name")
     email = EmailField(blank=False, unique=True, help_text="Customer unique email address")
+    wishlist = models.ManyToManyField("products.Product", through="Wishlist", related_name="+")
 
     objects = CustomerManager()
 
@@ -21,8 +22,8 @@ class Customer(models.Model):
 
 
 class Wishlist(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    product = models.ForeignKey("products.Product", on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="+")
+    product = models.ForeignKey("products.Product", on_delete=models.CASCADE, related_name="+")
 
     class Meta:
         unique_together = (("customer", "product"),)
