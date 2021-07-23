@@ -18,3 +18,11 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Wishlist(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    product = models.ForeignKey("products.Product", on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = (("customer", "product"),)
