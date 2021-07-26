@@ -7,7 +7,7 @@ __all__ = ["CustomerOut", "CustomerIn"]
 
 
 class CustomerOut(Schema):
-    id: UUID4 = Field(descripion="Customer UUID4 identifier")
+    id: UUID4 = Field(descripion="Customer UUID identifier")
     name: str = Field(descripion="Customer fullname")
     email: EmailStr = Field(descripion="Customer unique email address")
 
@@ -18,7 +18,7 @@ class CustomerIn(Schema):
 
 
 class ProductWishlistIn(Schema):
-    product_id: str = Field(description="Product UUID4 identifier")
+    product_id: str = Field(description="Product UUID identifier")
 
 
 class ProductWishlistOut(Schema):

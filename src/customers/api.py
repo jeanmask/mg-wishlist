@@ -3,13 +3,21 @@ from typing import List
 from django.shortcuts import get_object_or_404
 from ninja import NinjaAPI
 from ninja.errors import ValidationError
+from ninja.security import HttpBearer
 
 from products.models import Product
 
 from .models import Customer, Wishlist
 from .schemas import CustomerIn, CustomerOut, ProductWishlistIn, ProductWishlistOut
 
-api = NinjaAPI()
+
+class AuthBearer(HttpBearer):
+    def authenticate(self, request, token):
+        if token == "supersecret":
+            return token
+
+
+api = NinjaAPI(title="Wishlist API", auth=AuthBearer())
 
 
 @api.get("/", response=List[CustomerOut])
